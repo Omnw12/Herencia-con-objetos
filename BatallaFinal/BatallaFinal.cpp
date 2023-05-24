@@ -108,7 +108,7 @@ void Character::Fogata(int PpositionY) {
 	if (PpositionY == 3 || PpositionY == 5 || PpositionY == 7 ) {
 		std::cout << "Has llegado a una zona de descanso. ""\n";
 		if (getHp() == 500) {
-			std::cout << " Dispones de la vida maxima no puedes curarte" << "\n";
+			std::cout << "Dispones de la vida maxima no puedes curarte" << "\n";
 		}
 		else if (getHp() >= 350) {
 			setHp(500);
