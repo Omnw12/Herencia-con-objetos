@@ -35,29 +35,37 @@ bool acabarpelea(bool enemigovivo) {
 int peleaEnemigo(bool enemigovivo,int heroevida, int enemigovida, int dmgvillano,int dDmgheroe, int sShield, std::string enemyName) {
     while (enemigovivo && juegofinal) {
         std::cout << "Atacas primero.""\n";
+        Sleep(2000);
         enemigovida = enemigovida - dDmgheroe;
         std::cout << "Le zurras una hostia y lo dejas a " << enemigovida << " puntos de vida.""\n";
+        Sleep(2000);
         if (enemigovida > 0) {
             std::cout << "El enemigo te va a atacar. Protegete.""\n";
+            Sleep(1000);
             if (sShield > 0) {
                 heroevida = (heroevida + sShield) - dmgvillano;
                 std::cout << "El enemigo te ataca y te deja a " << heroevida << " puntos de vida.""\n";
+                Sleep(1000);
             }
             else if (sShield == 0) {
                 heroevida = heroevida - dmgvillano;
                 std::cout << "No te puedes proteger. El ataque te da de lleno y te deja a " << heroevida << " puntos de vida.""\n";
-
+                Sleep(1000);
             }
         }
         else if (enemigovida <= 0) {
             std::cout << "Has derrotado al enemigo " << enemyName << ".\n";
             enemigovivo = false;
             return heroevida;
+            Sleep(2000);
+
         }
         if (heroevida <= 0) {
             std::cout << "Has sido derrotado y no has superado la Prueba de la perdicion.""\n";
             std::cout << "GAME OVER""\n";
             juegofinal=false;
+            Sleep(2000);
+
         }
         Sleep(3000);
    } 
@@ -111,7 +119,7 @@ int main() {
     Character Villano2(400, 125, 0, "Manus", 4, 4, true);
     Character Villano3(450, 150, 0, "Maliketh", 1, 6, true);
     Character Villano4(500, 175, 0, "Artorias", 0, 8, true);
-    FinalBoss ElMandamas(2000,100,50, "Gwyn Senyor de Cinder ",0,9,true,300,150);
+    FinalBoss ElMandamas(1000,100,50, "Gwyn Senyor de Cinder ",0,9,true,300,150);
     srand(time(NULL));
     introgame();
     Sleep(2000);
@@ -158,8 +166,9 @@ int main() {
             std::cout << "Dirección inválida. Intenta nuevamente." << std::endl;
             break;
         }
+        Sleep(2000);
         Heroe.Fogata(Heroe.getPositionY());
-       
+        Sleep(2000);
         Villano1.setPositionX(randomposicion(Villano1.getPositionX()));
         Villano2.setPositionX(randomposicion(Villano2.getPositionX()));
         Villano3.setPositionX(randomposicion(Villano3.getPositionX()));
@@ -210,8 +219,8 @@ int main() {
             system("cls");
             while (ElMandamas.getLive()== true) {
                 option = rand() % 10;
-                std::cout << ElMandamas.getName() << " atacara primero.""\n";
                 if (ElMandamas.getHp() > 0) {
+                    std::cout << ElMandamas.getName() << " atacara primero.""\n";
                     if (option >= 0 && option <=6) {
                         Heroe.setHp((Heroe.getHp() + Heroe.getShield()) - ElMandamas.getThunder());
                         std::cout << "El enemigo te invoca un rayo del cielo que te deja a " << Heroe.getHp() << " puntos de vida.""\n";
@@ -226,6 +235,7 @@ int main() {
                 }
                 else if (ElMandamas.getHp() <= 0) {
                     std::cout << "Has derrotado al enemigo " << ElMandamas.getName() << ".\n";
+                    std::cout << "Y has superado la Prueba de la perdición. Has logrado lo que nadie ha hecho.""\n";
                     ElMandamas.setLive(false);
                 }
                 if (Heroe.getHp() <= 0) {
