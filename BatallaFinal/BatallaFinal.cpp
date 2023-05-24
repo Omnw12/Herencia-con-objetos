@@ -71,28 +71,30 @@ void Character::setPositionY(int PpositionY) {
 
 void Character::chooseWeapon() {
 	int opcion = 0;
-	std::cout << "¿Que arma quieres escoger para pelear a los diferentes enemigos?" << "\n";
-	std::cout << "1.Espada y escudo" << "    ""2.Mandoble" << "    " <<  "3.Martillo" << "\n";
-	std::cout << "Dmg= 100" << "             " <<"Dmg=200 " << "      "     "Dmg=150" << "\n";
-	std::cout << "Shield= 100" <<"          "  << "Shield = 0" << "    " <<     "Shield=50" << "\n";
-	std::cout << "Elige una :"; std::cin >> opcion;
-	
-	if (opcion== 1) {
-		setDmg(100);
-		setShield(100);
-		std::cout << "El heroe " << getName() << " dispondra de " << getHp() << " puntos de vida, " << getDmg() << " puntos de danyo y dispondra de un escudo ""\n";
-		std::cout << "que podra parar " << getShield() << " puntos de danyo de los enemigos." << "\n";
-	}
-	else if (opcion == 2) {
-		setDmg(200);
-		setShield(0);
-		std::cout << "El heroe " << getName() << " dispondra de " << getHp() << " puntos de vida, " << getDmg() << " puntos de danyo y no tendra escudo. ""\n";
-	}
-	else if (opcion == 3) {
-		setDmg(150);
-		setShield(50);
-		std::cout << "El heroe " << getName() << " dispondra de " << getHp() << " puntos de vida, " << getDmg() << " puntos de danyo y dispondra de un escudo ""\n";
-		std::cout << "que podra parar " << getShield() << " puntos de danyo de los enemigos." << "\n";
+	while (opcion != 1 && opcion != 2 && opcion != 3) {
+		std::cout << "¿Que arma quieres escoger para pelear a los diferentes enemigos?" << "\n";
+		std::cout << "1.Espada y escudo" << "    ""2.Mandoble" << "    " << "3.Martillo" << "\n";
+		std::cout << "Dmg= 100" << "             " << "Dmg=200 " << "      "     "Dmg=150" << "\n";
+		std::cout << "Shield = 100" << "          " << "Shield = 0" << "    " << "Shield = 50" << "\n";
+		std::cout << "Elige una :"; std::cin >> opcion;
+
+		if (opcion == 1) {
+			setDmg(100);
+			setShield(100);
+			std::cout << "El heroe " << getName() << " dispondra de " << getHp() << " puntos de vida, " << getDmg() << " puntos de danyo y dispondra de un escudo ""\n";
+			std::cout << "que podra parar " << getShield() << " puntos de danyo de los enemigos." << "\n";
+		}
+		else if (opcion == 2) {
+			setDmg(200);
+			setShield(0);
+			std::cout << "El heroe " << getName() << " dispondra de " << getHp() << " puntos de vida, " << getDmg() << " puntos de danyo y no tendra escudo. ""\n";
+		}
+		else if (opcion == 3) {
+			setDmg(150);
+			setShield(50);
+			std::cout << "El heroe " << getName() << " dispondra de " << getHp() << " puntos de vida, " << getDmg() << " puntos de danyo y dispondra de un escudo ""\n";
+			std::cout << "que podra parar " << getShield() << " puntos de danyo de los enemigos." << "\n";
+		}
 	}
 }
 
@@ -103,7 +105,7 @@ void Character::printInfoEnemy() {
 }
 
 void Character::Fogata(int PpositionY) {
-	if (PpositionY == 3 || PpositionY == 5 || PpositionY == 7 || PpositionY == 9) {
+	if (PpositionY == 3 || PpositionY == 5 || PpositionY == 7 ) {
 		std::cout << "Has llegado a una zona de descanso. ""\n";
 		if (getHp() == 500) {
 			std::cout << " Dispones de la vida maxima no puedes curarte" << "\n";

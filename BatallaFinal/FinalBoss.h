@@ -18,5 +18,4 @@ public:
 
 	void setThunder(int tThunder);
 
-	void lanzarRayodeSol(int bosshp);
 };
